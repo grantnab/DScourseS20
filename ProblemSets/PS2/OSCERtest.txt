@@ -1,0 +1,2 @@
+this line came from the CLI
+add test
