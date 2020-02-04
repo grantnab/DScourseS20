@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage{design_ASC}
+
+\setlength\parindent{0pt} %% Do not touch this
+
+%% -----------------------------
+%% TITLE
+%% -----------------------------
+\title{Problem Set \#3} %% Assignment Title
+
+\author{Grant Naberhaus\\ %% Student name
+ECON 5253\\ %% Code and course name
+\textsc{University of Oklahoma}
+}
+
+\date{\today} %% Change "\today" by another date manually
+%% -----------------------------
+%% -----------------------------
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\setlength{\droptitle}{-5em}    
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+% --------------------------
+% Start here
+% --------------------------
+
+% %%%%%%%%%%%%%%%%%%%
+\section*{Question 3}
+% %%%%%%%%%%%%%%%%%%%
+\begin{itemize}
+    \item 3e (5 MB)
+\item 3g 0 word count
+\item 3j 36634
+\end{itemize}
+
+
+
+
+
+\end{document}
+

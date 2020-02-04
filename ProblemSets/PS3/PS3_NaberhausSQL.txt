@@ -1,0 +1,43 @@
+-- (5a) I had issues getting my SQL code to run, specifically creating the table from the CSV file
+CREATE TABLE FLInsurance(
+  "policyid" INTEGER,
+  "statecode" TEXT,
+  "county"    TEXT,
+  "eq_site_limit" INTEGER,
+  "hu_site_limit" INTEGER,
+  "fl_site_limit" INTEGER,
+  "fr_site_limit" INTEGER,
+  "tiv_2011" REAL,
+  "tiv_2012" REAL,
+  "eq_site_deductible" REAL,
+  "hu_site_deductible" REAL,
+  "fl_site_deductible" REAL,
+  "fr_site_deductible" REAL,
+  "point_latitude" REAL,
+  "point_longitude" REAL,
+  "construction" TEXT,
+  "point_granularity" INTEGER);
+
+.mode csv
+.import /DScourseS20/ProblemSets/PS3/FL_insurance_sample.csv
+
+-- (5b)
+SELECT *
+FROM FLInsurance
+LIMIT 10
+
+-- (5c)
+SELECT DISTINCT county
+FROM FLInsurance
+
+-- (5d)
+SELECT AVG(tiv_2012) 
+FROM FLInsurance
+MINUS
+SELECT AVG(tiv_2011)
+FROM FLInsurance
+
+-- (5e)
+SELECT construction, COUNT(construction)
+FROM FLInsurance
+GROUP BY construction
