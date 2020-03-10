@@ -1,0 +1,174 @@
+%%% Template originaly created by Karol Kozioł (mail@karol-koziol.net) and modified for ShareLaTeX use
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{xcolor}
+
+\renewcommand\familydefault{\sfdefault}
+\usepackage{tgheros}
+\usepackage[defaultmono]{droidmono}
+
+\usepackage{amsmath,amssymb,amsthm,textcomp}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage{tikz}
+
+\usepackage{geometry}
+\geometry{left=25mm,right=25mm,%
+bindingoffset=0mm, top=20mm,bottom=20mm}
+
+
+\linespread{1.3}
+
+\newcommand{\linia}{\rule{\linewidth}{0.5pt}}
+
+% custom theorems if needed
+\newtheoremstyle{mytheor}
+    {1ex}{1ex}{\normalfont}{0pt}{\scshape}{.}{1ex}
+    {{\thmname{#1 }}{\thmnumber{#2}}{\thmnote{ (#3)}}}
+
+\theoremstyle{mytheor}
+\newtheorem{defi}{Definition}
+
+% my own titles
+\makeatletter
+\renewcommand{\maketitle}{
+\begin{center}
+\vspace{2ex}
+{\huge \textsc{\@title}}
+\vspace{1ex}
+\\
+\linia\\
+\@author \hfill \@date
+\vspace{4ex}
+\end{center}
+}
+\makeatother
+%%%
+
+% custom footers and headers
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\rhead{}
+\lfoot{ProblemSet \textnumero{} 7}
+\cfoot{}
+\rfoot{Page \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+%
+
+% code listing settings
+\usepackage{listings}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    aboveskip={1.0\baselineskip},
+    belowskip={1.0\baselineskip},
+    columns=fixed,
+    extendedchars=true,
+    breaklines=true,
+    tabsize=4,
+    prebreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=lines,
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0.627,0.126,0.941},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{01,0,0},
+    numbers=left,
+    numberstyle=\small,
+    stepnumber=1,
+    numbersep=10pt,
+    captionpos=t,
+    escapeinside={\%*}{*)}
+}
+
+%%%----------%%%----------%%%----------%%%----------%%%
+
+\begin{document}
+
+\title{Problem Set \textnumero{} 7}
+
+\author{Grant Naberhaus, University of Oklahoma}
+
+\date{03/10/2020}
+
+\maketitle
+
+\section*{ProblemSet Questions}
+The logwage variable is present in approximately 75 percent of the observations after missing observations for hgc and tenure were dropped. The logwage variable is most likely MAR. All the models have somewhat similar, statistically significant, Beta1 values. These values are much different from the true value, which seems odd. The last two models appear to have similar beta values, but not identical.
+
+\section*{Project Progress}
+I'm still interested in constructing an NBA model. My initial expectations of creating a predictive model may have been a little too ambitious given my limited machine learning knowledge. I recently read about a model that used the sum of player efficiency ratings for a team (minutes adjusted), and correlated this sum with win percentage. Using this as a basis, I would also add in days rest as binary variables and include home court as an additional binary variable. Additionally, I considered trying to include an elevation variable, but I figured this would exhibit a high multicollinearity with the home court variable, and only two NBA teams play at a significantly higher elevation (Denver Nuggets and Utah Jazz). 
+
+\section*{Tables}
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Mon, Mar 09, 2020 - 9:40:20 PM
+\begin{table}[!htbp] \centering 
+  \caption{} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lccccccc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+Statistic & \multicolumn{1}{c}{N} & \multicolumn{1}{c}{Mean} & \multicolumn{1}{c}{St. Dev.} & \multicolumn{1}{c}{Min} & \multicolumn{1}{c}{Pctl(25)} & \multicolumn{1}{c}{Pctl(75)} & \multicolumn{1}{c}{Max} \\ 
+\hline \\[-1.8ex] 
+logwage & 1,669 & 1.625 & 0.386 & 0.005 & 1.362 & 1.936 & 2.261 \\ 
+hgc & 2,229 & 13.101 & 2.524 & 0 & 12 & 15 & 18 \\ 
+tenure & 2,229 & 5.971 & 5.507 & 0.000 & 1.583 & 9.333 & 25.917 \\ 
+age & 2,229 & 39.152 & 3.062 & 34 & 36 & 42 & 46 \\ 
+\hline \\[-1.8ex] 
+\end{tabular} 
+\end{table} 
+% Table created by stargazer v.5.2.2 by Marek Hlavac, Harvard University. E-mail: hlavac at fas.harvard.edu
+% Date and time: Tue, Mar 10, 2020 - 10:52:30 AM
+% Requires LaTeX packages: dcolumn 
+\begin{table}[!htbp] \centering 
+  \caption{Results} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{logwage} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ hgc & 0.062^{***} & 0.050^{***} & 0.060^{***} \\ 
+  & (0.005) & (0.004) & (0.004) \\ 
+  & & & \\ 
+ collegenot college grad & 0.145^{***} & 0.168^{***} & 0.134^{***} \\ 
+  & (0.034) & (0.026) & (0.025) \\ 
+  & & & \\ 
+ tenure & 0.050^{***} & 0.038^{***} & 0.047^{***} \\ 
+  & (0.005) & (0.004) & (0.004) \\ 
+  & & & \\ 
+ tenuresq & -0.002^{***} & -0.001^{***} & -0.001^{***} \\ 
+  & (0.0003) & (0.0002) & (0.0002) \\ 
+  & & & \\ 
+ age & 0.0004 & 0.0002 & -0.0004 \\ 
+  & (0.003) & (0.002) & (0.002) \\ 
+  & & & \\ 
+ marriedsingle & -0.022 & -0.027^{**} & -0.017 \\ 
+  & (0.018) & (0.014) & (0.013) \\ 
+  & & & \\ 
+ Constant & 0.534^{***} & 0.708^{***} & 0.608^{***} \\ 
+  & (0.146) & (0.116) & (0.114) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{1,669} & \multicolumn{1}{c}{2,229} & \multicolumn{1}{c}{2,229} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.208} & \multicolumn{1}{c}{0.147} & \multicolumn{1}{c}{0.264} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.206} & \multicolumn{1}{c}{0.145} & \multicolumn{1}{c}{0.262} \\ 
+Residual Std. Error & \multicolumn{1}{c}{0.344 (df = 1662)} & \multicolumn{1}{c}{0.308 (df = 2222)} & \multicolumn{1}{c}{0.303 (df = 2222)} \\ 
+F Statistic & \multicolumn{1}{c}{72.917$^{***}$ (df = 6; 1662)} & \multicolumn{1}{c}{63.941$^{***}$ (df = 6; 2222)} & \multicolumn{1}{c}{132.791$^{***}$ (df = 6; 2222)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+\end{table}
+\end{document}
